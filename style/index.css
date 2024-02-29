@@ -44,7 +44,6 @@
   font-size: 64px;
   font-weight: 700;
   line-height: 80px;
-  color: #000;
 }
 
 .main .description span {
@@ -83,14 +82,13 @@ section:not(.main) img {
   justify-content: center;
 }
 
-.section .description {
+section .description {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
 .save .description h1 {
-  text-size-adjust: auto;
   font-family: Pretendard;
   font-size: 48px;
   font-weight: 700;
@@ -115,12 +113,9 @@ section:not(.main) img {
 }
 
 .manage .description h1 {
-  color: #000;
   font-family: Pretendard;
   font-size: 48px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   letter-spacing: -0.3px;
 }
 
@@ -129,12 +124,6 @@ section:not(.main) img {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Pretendard;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.3px;
 }
 
 .description p {
@@ -213,6 +202,7 @@ section:not(.main) img {
   gap: 12px;
 }
 
+/* Table 화면 디자인*/
 @media (max-width: 1199px) {
   .nav {
     padding: 20px 32px;
@@ -225,8 +215,6 @@ section:not(.main) img {
 
   section:not(.main) {
     padding: 80px 0 50px;
-    display: flex;
-    justify-content: center;
     gap: 51px;
   }
 
@@ -236,5 +224,70 @@ section:not(.main) img {
   }
 }
 
+/* Mobile 화면 디자인 */
 @media (max-width: 767px) {
+  .nav {
+    padding: 13px 32px;
+  }
+  .main .description {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 42px;
+    width: 100%;
+  }
+
+  .add-link {
+    width: 200px;
+    padding: 10px 16px;
+  }
+
+  .main {
+    padding: 0 32px;
+  }
+
+  .main img {
+    width: 302.792px;
+    height: 178.712px;
+  }
+
+  section:not(.main) {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 32px;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  section:not(.main) .description h1 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  section:not(.main) .description p {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 150%;
+    color: var(--Gray6);
+  }
+
+  section:not(.main) img {
+    width: 100%;
+    height: 100%;
+  }
+
+  br.mobileNone {
+    display: none;
+  }
+
+  .footer {
+    position: relative;
+    padding: 32px 32px 64px;
+    height: 160px;
+  }
+
+  .corp {
+    position: absolute;
+    left: 32px;
+    bottom: 32px;
+  }
 }
