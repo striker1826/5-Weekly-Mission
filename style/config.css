@@ -1,5 +1,5 @@
 :root {
-  --Primary-color: #6d6afe;
+  --Primary-Color: #6d6afe;
   --Red: #ff5b56;
   --Black: #111322;
   --White: #ffffff;
@@ -10,8 +10,8 @@
   --Gray5: #f0f6ff;
   --Gray6: #6b6b6b;
   --Grey-Light: #f5f5f5;
-  --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-  --Linkbrary-bg: #f0f6ff;
+  --Gra-Purpleblue-To-Skyblue: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  --Linkbrary-Bg: #f0f6ff;
 }
 
 * {
