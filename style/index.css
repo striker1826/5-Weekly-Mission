@@ -67,15 +67,20 @@
 }
 
 section:not(.main) {
-  padding: 50px 14%;
+  padding: 50px 0 50px;
   display: flex;
   gap: 157px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
+section:not(.main) img {
+  width: 550px;
+  height: 450px;
+}
 .section.save {
-  padding: 120px 14% 50px;
+  padding: 120px 0 50px;
+  justify-content: center;
 }
 
 .section .description {
@@ -85,6 +90,7 @@ section:not(.main) {
 }
 
 .save .description h1 {
+  text-size-adjust: auto;
   font-family: Pretendard;
   font-size: 48px;
   font-weight: 700;
@@ -99,29 +105,13 @@ section:not(.main) {
   -webkit-text-fill-color: transparent;
 }
 
-.save .imgs {
-  width: 550px;
-  height: 450px;
-  border-radius: 15px;
-  background: var(--Linkbrary-Bg);
-  padding: 88.24px 0;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.manage .card-container {
+.manage .cardContainer {
   padding: 114px 68px 66px 68px;
   border-radius: 15px;
   background-color: var(--Linkbrary-Bg);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.manage .card {
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .manage .description h1 {
@@ -173,29 +163,6 @@ section:not(.main) {
   -webkit-text-fill-color: transparent;
 }
 
-.share .img-container {
-  position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/share-background.png");
-  border-radius: 25px;
-  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
-  width: 570px;
-  height: 469px;
-  flex-shrink: 0;
-}
-
-.share .popup-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -45%);
-}
-
-.search .img-container {
-  padding: 55px 0 0 60px;
-  border-radius: 15px;
-  background: #f0f6ff;
-}
-
 .search .description h1 {
   color: #000;
   font-family: Pretendard;
@@ -244,4 +211,30 @@ section:not(.main) {
 .sns {
   display: flex;
   gap: 12px;
+}
+
+@media (max-width: 1199px) {
+  .nav {
+    padding: 20px 32px;
+  }
+
+  .mainImg {
+    width: 650.303px;
+    height: 383.114px;
+  }
+
+  section:not(.main) {
+    padding: 80px 0 50px;
+    display: flex;
+    justify-content: center;
+    gap: 51px;
+  }
+
+  section:not(.main) img {
+    width: 385px;
+    height: 315px;
+  }
+}
+
+@media (max-width: 767px) {
 }
