@@ -18,11 +18,11 @@
 .login-btn {
   padding: 16px 20px;
   border-radius: 8px;
-  background: var(--Gra-Purpleblue-To-Skyblue);
   width: 128px;
   text-decoration: none;
   text-align: center;
   color: var(--Grey-Light);
+  background: var(--Gra-Purpleblue-To-Skyblue);
   font-family: Pretendard;
   font-size: 18px;
   font-weight: 600;
@@ -60,9 +60,6 @@
   background: var(--Gra-Purpleblue-To-Skyblue);
   width: 350px;
   cursor: pointer;
-}
-
-.add-link {
   color: var(--Grey-Light);
   padding: 16px 20px;
   border-radius: 8px;
