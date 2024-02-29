@@ -135,7 +135,7 @@ main {
 }
 
 .social-login p {
-  color: var(--Linkbrary-gray100, #373740);
+  color: var(--Gray7);
   font-family: Pretendard;
   font-size: 14px;
   font-weight: 400;
