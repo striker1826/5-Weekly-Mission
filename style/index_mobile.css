@@ -4,6 +4,10 @@
     padding: 13px 32px;
   }
 
+  .mobileOnly {
+    display: block;
+  }
+
   .main p {
     font-size: 32px;
     font-weight: 700;
