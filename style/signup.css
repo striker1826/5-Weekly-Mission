@@ -40,7 +40,7 @@ main {
 }
 
 .move-link .signup-link {
-  color: var(--Primary-color);
+  color: var(--Primary-Color);
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
