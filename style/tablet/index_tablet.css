@@ -5,7 +5,13 @@
   }
 
   .mobileOnly {
-    display: none;
+    display: block;
+  }
+
+  .main p {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 80px;
   }
 
   .mainImg {
