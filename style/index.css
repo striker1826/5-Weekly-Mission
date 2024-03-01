@@ -15,6 +15,10 @@
   cursor: pointer;
 }
 
+.mobileOnly {
+  display: none;
+}
+
 .login-btn {
   padding: 16px 20px;
   border-radius: 8px;
@@ -37,7 +41,7 @@
   background: #f0f6ff;
 }
 
-.main .description {
+.main p {
   text-align: center;
   font-family: Pretendard;
   width: 900px;
@@ -46,7 +50,7 @@
   line-height: 80px;
 }
 
-.main .description span {
+.main .slogunGradient {
   background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -200,94 +204,4 @@ section .description {
 .sns {
   display: flex;
   gap: 12px;
-}
-
-/* Table 화면 디자인*/
-@media (max-width: 1199px) {
-  .nav {
-    padding: 20px 32px;
-  }
-
-  .mainImg {
-    width: 650.303px;
-    height: 383.114px;
-  }
-
-  section:not(.main) {
-    padding: 80px 0 50px;
-    gap: 51px;
-  }
-
-  section:not(.main) img {
-    width: 385px;
-    height: 315px;
-  }
-}
-
-/* Mobile 화면 디자인 */
-@media (max-width: 767px) {
-  .nav {
-    padding: 13px 32px;
-  }
-  .main .description {
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 42px;
-    width: 100%;
-  }
-
-  .add-link {
-    width: 200px;
-    padding: 10px 16px;
-  }
-
-  .main {
-    padding: 0 32px;
-  }
-
-  .main img {
-    width: 302.792px;
-    height: 178.712px;
-  }
-
-  section:not(.main) {
-    display: flex;
-    flex-direction: column;
-    padding: 40px 32px;
-    gap: 24px;
-    align-items: flex-start;
-  }
-
-  section:not(.main) .description h1 {
-    font-size: 24px;
-    font-weight: 700;
-  }
-
-  section:not(.main) .description p {
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 150%;
-    color: var(--Gray6);
-  }
-
-  section:not(.main) img {
-    width: 100%;
-    height: 100%;
-  }
-
-  br.mobileNone {
-    display: none;
-  }
-
-  .footer {
-    position: relative;
-    padding: 32px 32px 64px;
-    height: 160px;
-  }
-
-  .corp {
-    position: absolute;
-    left: 32px;
-    bottom: 32px;
-  }
 }
