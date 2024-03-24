@@ -1,8 +1,15 @@
 const email = document.querySelector(".email");
 const emailInput = document.querySelector("#email");
+
+const nonEmailMsg = document.querySelector(".nonEmail");
+const invalidEmailMsg = document.querySelector(".invalidEmail");
+
 const password = document.querySelector(".password");
 const passwordInput = document.querySelector("#password");
+const invalidPasswordMsg = document.querySelector(".invalidPassword");
+
 const submitBtn = document.querySelector(".loginBtn");
+
 const eyeOn = document.querySelector(".eyeOn");
 const eyeOff = document.querySelector(".eye-off");
 const eyeBtn = document.querySelector(".eyeBtn");
@@ -11,55 +18,53 @@ const eyeBtn = document.querySelector(".eyeBtn");
 const TEST_EMAIL = "test@codeit.com";
 const TEST_PASSWORD = "codeit101";
 
-// 에러 메세지 생성 후 추가 함수
-const createErrMsg = (element, message) => {
-  const lastElement = element.lastElementChild;
-  if (lastElement.tagName === "P") lastElement.remove();
+// 이메일 유효성 검사를 위한 정규표현식
+const EMAIL_REGEXP = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
-  const errMsgTag = document.createElement("p");
-  errMsgTag.textContent = message;
-  element.appendChild(errMsgTag);
+// 비밀번호 Attribute 변환을 위한 객체
+const PASSWORD_CONFIG = {
+  PASSWORD: { INPUT: passwordInput, EYE_ON: eyeOn, EYE_OFF: eyeOff },
 };
 
-// 에러 메세지 제거 함수
-const removeErrMsg = (element) => {
-  const err_msg = element.querySelector("p");
-  if (err_msg) {
-    err_msg.remove();
-  }
-};
+/**
+ * 이메일 유효성을 검사하는 함수입니다.
+ * @param {Event} event - 이벤트 객체
+ */
+const emailValidation = ({ target }) => {
+  const email = target.value;
 
-// 이메일 검사 함수
-const emailValidator = ({ target }) => {
-  let emailRegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-  if (!target.value) {
-    createErrMsg(email, "이메일을 입력해 주세요.");
-    emailInput.classList.add("err");
-    return;
+  // email이 있는지 확인
+  if (!email) {
+    nonEmailMsg.classList.remove("errNone");
+  } else {
+    nonEmailMsg.classList.add("errNone");
   }
 
-  if (!emailRegExp.test(target.value)) {
-    createErrMsg(email, "올바른 이메일 주소가 아닙니다.");
-    emailInput.classList.add("err");
-    return;
+  // 이메일 유효성 검사
+  if (email && !EMAIL_REGEXP.test(email)) {
+    invalidEmailMsg.classList.remove("errNone");
+  } else {
+    invalidEmailMsg.classList.add("errNone");
   }
 
-  if (target.value) {
-    removeErrMsg(email);
+  // 이메일 유효성 검사 후, input 박스의 border 색상을 결정합니다.
+  if (email && EMAIL_REGEXP.test(email)) {
     emailInput.classList.remove("err");
-    return;
+    isEmailValid = true;
+  } else {
+    emailInput.classList.add("err");
   }
 };
 
 // 비밀번호 검사 함수
+/**
+ * 비밀번호 유효성을 검사하는 함수입니다.
+ * @param {Event} event - 이벤트 객체
+ */
 const passwordValidator = ({ target }) => {
-  if (!target.value) {
-    createErrMsg(password, "비밀번호를 입력해 주세요.");
-    passwordInput.classList.add("err");
-  } else {
-    removeErrMsg(password);
-    passwordInput.classList.remove("err");
+  const password = target.value;
+  if (!password) {
+    invalidPasswordMsg.classList.remove("errNone");
   }
 };
 
@@ -70,25 +75,37 @@ const submitLogin = () => {
   if (emailValue === TEST_EMAIL && passwordValue === TEST_PASSWORD) {
     location.href = "/folder.html";
   } else {
-    createErrMsg(email, "이메일을 확인해 주세요.");
-    createErrMsg(password, "비밀번호를 확인해 주세요.");
+    emailValidation({ target: emailInput });
+    passwordValidator({ target: passwordInput });
   }
 };
 
-// 비밀번호 눈 아이콘 클릭 시 이벤트 함수
-const handleToPasswordEye = () => {
-  const passwordType = passwordInput.getAttribute("type");
+/**
+ * 비밀번호의 눈 아이콘을 클릭했을 때, 비밀번호를 보여주거나 가리는 함수입니다.
+ * @param {string} type - 비밀번호의 타입입니다. 현재는 PASSWORD만 가능합니다.
+ */
+const handleToPasswordEye = (type) => {
+  const passwordType = PASSWORD_CONFIG[type];
+  const passwordAttribute = PASSWORD_CONFIG[type].INPUT.getAttribute("type");
 
-  passwordType === "password"
-    ? (passwordInput.setAttribute("type", "text"), eyeOff.classList.toggle("none"), eyeOn.classList.toggle("none"))
-    : (passwordInput.setAttribute("type", "password"), eyeOff.classList.toggle("none"), eyeOn.classList.toggle("none"));
+  if (passwordAttribute === "password") {
+    passwordType.INPUT.setAttribute("type", "text");
+    passwordType.EYE_OFF.classList.toggle("none");
+    passwordType.EYE_ON.classList.toggle("none");
+    return;
+  } else {
+    passwordType.INPUT.setAttribute("type", "password");
+    passwordType.EYE_OFF.classList.toggle("none");
+    passwordType.EYE_ON.classList.toggle("none");
+    return;
+  }
 };
 
 // Event Listener 등록
-emailInput.addEventListener("focusout", emailValidator);
+emailInput.addEventListener("focusout", emailValidation);
 passwordInput.addEventListener("focusout", passwordValidator);
 submitBtn.addEventListener("click", submitLogin);
-eyeBtn.addEventListener("click", handleToPasswordEye);
+eyeBtn.addEventListener("click", () => handleToPasswordEye("PASSWORD"));
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     submitLogin();
