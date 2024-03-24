@@ -1,15 +1,11 @@
 const email = document.querySelector(".email");
 const emailInput = document.querySelector("#email");
-
 const nonEmailMsg = document.querySelector(".nonEmail");
 const invalidEmailMsg = document.querySelector(".invalidEmail");
-
 const password = document.querySelector(".password");
 const passwordInput = document.querySelector("#password");
 const invalidPasswordMsg = document.querySelector(".invalidPassword");
-
 const submitBtn = document.querySelector(".loginBtn");
-
 const eyeOn = document.querySelector(".eyeOn");
 const eyeOff = document.querySelector(".eye-off");
 const eyeBtn = document.querySelector(".eyeBtn");
@@ -56,7 +52,6 @@ const emailValidation = ({ target }) => {
   }
 };
 
-// 비밀번호 검사 함수
 /**
  * 비밀번호 유효성을 검사하는 함수입니다.
  * @param {Event} event - 이벤트 객체
@@ -68,7 +63,10 @@ const passwordValidator = ({ target }) => {
   }
 };
 
-// 로그인 버튼 클릭 시 이벤트 함수
+/**
+ * 로그인을 제출하는 함수입니다.
+ * @returns {void}
+ */
 const submitLogin = () => {
   const emailValue = document.querySelector("#email").value;
   const passwordValue = document.querySelector("#password").value;
