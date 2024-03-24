@@ -33,6 +33,7 @@ let isConfirmPasswordValid = false;
 /**
  * 비밀번호와 비밀번호 확인의 눈 아이콘을 클릭했을 때, 비밀번호를 보여주거나 가리는 함수입니다.
  * @param {string} type - 비밀번호의 타입입니다. PASSWORD 또는 CONFIRM이 가능합니다.
+ * @returns {void}
  */
 const handleToPasswordEye = (type) => {
   const passwordType = PASSWORD_CONFIG[type];
@@ -51,7 +52,11 @@ const handleToPasswordEye = (type) => {
   }
 };
 
-// 이메일 유효성을 검사하는 함수입니다.
+/**
+ * 이메일 유효성을 검사하는 함수입니다.
+ * @param {Event} event - 이벤트 객체
+ * @returns {void}
+ */
 const emailValidation = ({ target }) => {
   console.log(target);
   const email = target.value;
@@ -120,6 +125,11 @@ const confirmPasswordvalidation = ({ target }) => {
   }
 };
 
+/**
+ * 회원가입 버튼 클릭 시 실행되는 함수입니다.
+ * 이메일, 비밀번호, 비밀번호 확인이 모두 유효한 경우 "/foder"로 페이지를 이동합니다.
+ * 유효하지 않은 경우, 각 입력 필드에 대한 유효성 검사를 실행합니다.
+ */
 const onClickSignupBtn = () => {
   if (isEmailValid && isPasswordValid && isConfirmPasswordValid) {
     window.location.href = "/foder";
@@ -130,7 +140,19 @@ const onClickSignupBtn = () => {
   }
 };
 
+/**
+ * 해당 함수는 로딩 시 호출되는 함수입니다.
+ * 만약 accessToken이 존재한다면 "folder.html"로 페이지를 이동합니다.
+ */
+const handleOnLoading = () => {
+  const accessToken = window.localStorage.getItem("accessToken");
+  if (accessToken) {
+    window.location.href = "folder.html";
+  }
+};
+
 // Event Listener 등록
+document.addEventListener("DOMContentLoaded", handleOnLoading);
 eyeBtn.addEventListener("click", () => handleToPasswordEye("PASSWORD"));
 confirmEyeBtn.addEventListener("click", () => handleToPasswordEye("CONFIRM"));
 emailInput.addEventListener("focusout", emailValidation);
