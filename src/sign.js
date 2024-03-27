@@ -36,16 +36,16 @@ const emailValidation = ({ target }) => {
 
   // email이 있는지 확인
   if (!email) {
-    nonEmailMsg.classList.remove("errNone");
+    nonEmailMsg.classList.remove("hide");
   } else {
-    nonEmailMsg.classList.add("errNone");
+    nonEmailMsg.classList.add("hide");
   }
 
   // 이메일 유효성 검사
   if (email && !EMAIL_REGEXP.test(email)) {
-    invalidEmailMsg.classList.remove("errNone");
+    invalidEmailMsg.classList.remove("hide");
   } else {
-    invalidEmailMsg.classList.add("errNone");
+    invalidEmailMsg.classList.add("hide");
   }
 
   // 이메일 유효성 검사 후, input 박스의 border 색상을 결정합니다.
@@ -65,10 +65,10 @@ const emailValidation = ({ target }) => {
 const passwordValidator = ({ target }) => {
   const password = target.value;
   if (!password) {
-    invalidPasswordMsg.classList.remove("errNone");
+    invalidPasswordMsg.classList.remove("hide");
     return;
   } else {
-    invalidPasswordMsg.classList.add("errNone");
+    invalidPasswordMsg.classList.add("hide");
     isPasswordValid = true;
   }
 };
