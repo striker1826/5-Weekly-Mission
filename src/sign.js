@@ -31,7 +31,7 @@ const PASSWORD_CONFIG = {
  * @param {Event} event - 이벤트 객체
  * @returns {void}
  */
-const emailValidation = ({ target }) => {
+const validateEmail = ({ target }) => {
   const email = target.value;
 
   // email이 있는지 확인
@@ -105,7 +105,7 @@ const submitLogin = async () => {
     window.localStorage.setItem("accessToken", res.accessToken);
     window.location.href = "folder.html";
   } else {
-    emailValidation({ target: emailInput });
+    validateEmail({ target: emailInput });
     passwordValidator({ target: passwordInput });
   }
 };
@@ -139,7 +139,7 @@ const handleOnLoading = () => {
 
 // Event Listener 등록
 document.addEventListener("DOMContentLoaded", handleOnLoading);
-emailInput.addEventListener("focusout", emailValidation);
+emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", passwordValidator);
 eyeBtn.addEventListener("click", () => handlePasswordVisibilityToggle("PASSWORD"));
 submitBtn.addEventListener("click", submitLogin);
