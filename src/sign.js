@@ -62,7 +62,7 @@ const validateEmail = ({ target }) => {
  * @param {Event} event - 이벤트 객체
  * @returns {void}
  */
-const passwordValidator = ({ target }) => {
+const validatePassword = ({ target }) => {
   const password = target.value;
   if (!password) {
     invalidPasswordMsg.classList.remove("hide");
@@ -106,7 +106,7 @@ const submitLogin = async () => {
     window.location.href = "folder.html";
   } else {
     validateEmail({ target: emailInput });
-    passwordValidator({ target: passwordInput });
+    validatePassword({ target: passwordInput });
   }
 };
 
@@ -140,7 +140,7 @@ const handleOnLoading = () => {
 // Event Listener 등록
 document.addEventListener("DOMContentLoaded", handleOnLoading);
 emailInput.addEventListener("focusout", validateEmail);
-passwordInput.addEventListener("focusout", passwordValidator);
+passwordInput.addEventListener("focusout", validatePassword);
 eyeBtn.addEventListener("click", () => handlePasswordVisibilityToggle("PASSWORD"));
 submitBtn.addEventListener("click", submitLogin);
 document.addEventListener("keydown", (e) => {
