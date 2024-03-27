@@ -119,17 +119,10 @@ const handlePasswordVisibilityToggle = (type) => {
   const passwordType = PASSWORD_CONFIG[type];
   const passwordAttribute = PASSWORD_CONFIG[type].INPUT.getAttribute("type");
 
-  if (passwordAttribute === "password") {
-    passwordType.INPUT.setAttribute("type", "text");
-    passwordType.EYE_OFF.classList.toggle("none");
-    passwordType.EYE_ON.classList.toggle("none");
-    return;
-  } else {
-    passwordType.INPUT.setAttribute("type", "password");
-    passwordType.EYE_OFF.classList.toggle("none");
-    passwordType.EYE_ON.classList.toggle("none");
-    return;
-  }
+  const isPasswordVisible = passwordAttribute !== "password";
+  passwordType.INPUT.setAttribute("type", isPasswordVisible ? "password" : "text");
+  passwordType.EYE_OFF.classList.toggle("none");
+  passwordType.EYE_ON.classList.toggle("none");
 };
 
 /**
