@@ -115,7 +115,7 @@ const submitLogin = async () => {
  * @param {string} type - 비밀번호의 타입입니다. 현재는 PASSWORD만 가능합니다.
  * @returns {void}
  */
-const handleToPasswordEye = (type) => {
+const handlePasswordVisibilityToggle = (type) => {
   const passwordType = PASSWORD_CONFIG[type];
   const passwordAttribute = PASSWORD_CONFIG[type].INPUT.getAttribute("type");
 
@@ -148,7 +148,7 @@ const handleOnLoading = () => {
 document.addEventListener("DOMContentLoaded", handleOnLoading);
 emailInput.addEventListener("focusout", emailValidation);
 passwordInput.addEventListener("focusout", passwordValidator);
-eyeBtn.addEventListener("click", () => handleToPasswordEye("PASSWORD"));
+eyeBtn.addEventListener("click", () => handlePasswordVisibilityToggle("PASSWORD"));
 submitBtn.addEventListener("click", submitLogin);
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
