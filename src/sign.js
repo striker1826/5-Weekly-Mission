@@ -66,9 +66,11 @@ const validatePassword = ({ target }) => {
   const password = target.value;
   if (!password) {
     invalidPasswordMsg.classList.remove("hide");
+    passwordInput.classList.add("err");
     return;
   } else {
     invalidPasswordMsg.classList.add("hide");
+    passwordInput.classList.remove("err");
     isPasswordValid = true;
   }
 };
