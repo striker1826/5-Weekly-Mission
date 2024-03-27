@@ -10,10 +10,6 @@ const eyeOn = document.querySelector(".eyeOn");
 const eyeOff = document.querySelector(".eye-off");
 const eyeBtn = document.querySelector(".eyeBtn");
 
-// validation이 완료되었는지 확인하는 변수
-let isEmailValid = false;
-let isPasswordValid = false;
-
 // Test 계정
 const TEST_EMAIL = "test@codeit.com";
 const TEST_PASSWORD = "codeit101";
@@ -51,9 +47,10 @@ const validateEmail = ({ target }) => {
   // 이메일 유효성 검사 후, input 박스의 border 색상을 결정합니다.
   if (email && EMAIL_REGEXP.test(email)) {
     emailInput.classList.remove("err");
-    isEmailValid = true;
+    return true;
   } else {
     emailInput.classList.add("err");
+    return false;
   }
 };
 
@@ -67,11 +64,11 @@ const validatePassword = ({ target }) => {
   if (!password) {
     invalidPasswordMsg.classList.remove("hide");
     passwordInput.classList.add("err");
-    return;
+    return false;
   } else {
     invalidPasswordMsg.classList.add("hide");
     passwordInput.classList.remove("err");
-    isPasswordValid = true;
+    return true;
   }
 };
 
@@ -100,16 +97,17 @@ const postRequest = async (path, data, authorized) => {
  * @returns {void}
  */
 const submitLogin = async () => {
-  const emailValue = document.querySelector("#email").value;
-  const passwordValue = document.querySelector("#password").value;
-  if (isEmailValid && isPasswordValid) {
-    const res = await postRequest("api/sign-in", { email: emailValue, password: passwordValue }, null);
-    window.localStorage.setItem("accessToken", res.accessToken);
-    window.location.href = "folder.html";
-  } else {
-    validateEmail({ target: emailInput });
-    validatePassword({ target: passwordInput });
+  const emailValueInput = document.querySelector("#email");
+  const passwordInput = document.querySelector("#password");
+  const emailValidateResult = validateEmail({ target: emailValueInput });
+  const passwordvalidateResult = validatePassword({ target: passwordInput });
+
+  if (!emailValidateResult || !passwordvalidateResult) {
+    return;
   }
+  const res = await postRequest("api/sign-in", { email: emailValueInput.value, password: passwordInput.value }, null);
+  window.localStorage.setItem("accessToken", res.accessToken);
+  window.location.href = "folder.html";
 };
 
 /**
