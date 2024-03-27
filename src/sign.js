@@ -89,7 +89,10 @@ const postRequest = async (path, data, authorized) => {
     },
     body: JSON.stringify(data),
   });
-  return await res.json();
+
+  if (res.ok) {
+    return await res.json();
+  }
 };
 
 /**
