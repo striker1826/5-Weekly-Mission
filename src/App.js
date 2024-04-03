@@ -5,7 +5,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/shared" element={<SharedPage />} />
+        <Route path="/folder" element={<SharedPage />} />
       </Routes>
     </BrowserRouter>
   );
