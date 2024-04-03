@@ -1,7 +1,14 @@
-import { MainPage } from "./pages/MainPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { SharedPage } from "./pages/SharedPage";
 
 function App() {
-  return <MainPage />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/shared" element={<SharedPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
