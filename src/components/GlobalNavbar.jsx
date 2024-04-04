@@ -1,21 +1,9 @@
 import { styled } from "styled-components";
-import { useState, useEffect } from "react";
 import logo from "../assets/logo.svg";
-import { getRequest } from "../api";
+import { useGetProfile } from "../hooks/useGetProfile";
 
 export const GlobalNavbar = () => {
-  const [user, setUser] = useState(null);
-
-  const getUserProfile = async () => {
-    const userData = await getRequest("api/sample/user", null);
-    setUser(() => {
-      return userData;
-    });
-  };
-
-  useEffect(() => {
-    getUserProfile();
-  }, []);
+  const [user] = useGetProfile();
 
   return (
     <Container>
@@ -23,8 +11,8 @@ export const GlobalNavbar = () => {
       <ProfileData>
         {user ? (
           <>
-            <StyledProfileImage src={user?.profileImageSource} />
-            <StyledUserEmail>{user?.email}</StyledUserEmail>
+            <StyledProfileImage src={user?.data[0].image_source} />
+            <StyledUserEmail>{user?.data[0].email}</StyledUserEmail>
           </>
         ) : (
           <LoginATag>로그인</LoginATag>

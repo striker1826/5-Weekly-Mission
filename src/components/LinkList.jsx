@@ -36,12 +36,12 @@ const Link = ({ link }) => {
 
   return (
     <LinkCard>
-      <img src={link.imageSource} alt="link 이미지" />
-      <div>
-        <span>{getTimeAgo(link.createdAt)}</span>
-        <p>{link.description}</p>
-        <span>{formatingDate(link.createdAt)}</span>
-      </div>
+      <CardImg src={link.imageSource} alt="link 이미지" />
+      <CardContent>
+        <StyledDate>{getTimeAgo(link.createdAt)}</StyledDate>
+        <Description>{link.description}</Description>
+        <StyledDate>{formatingDate(link.createdAt)}</StyledDate>
+      </CardContent>
     </LinkCard>
   );
 };
@@ -63,47 +63,47 @@ const LinksContainer = styled.div`
 `;
 
 const LinkCard = styled.div`
-  width:100%
+  width: 100%;
   height: 100%;
   background: #fff;
-  display:flex;
+  display: flex;
   flex-direction: column;
   border-radius: 15px;
+`;
 
-  img {
-    width: 100%;
-    height: 200px;
-    border-radius: 15px 15px 0 0;
-  }
+const CardImg = styled.img`
+  width: 100%;
+  height: 200px;
+  border-radius: 15px 15px 0 0;
+`;
 
-  div {
-    padding: 15px 20px;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap:10px;
-    align-items: flex-start;
-    height: 100px;
-    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
-    border-radius: 0px 0px 15px 15px;
-    background: #fff;
-  }
+const CardContent = styled.div`
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+  height: 100px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 0px 0px 15px 15px;
+  background: #fff;
+`;
 
-p {
-    line-height: 24px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-word;
-    max-width: 300px;
+const StyledDate = styled.span`
+  color: ${({ theme }) => theme.color.Text};
+  font-size: 12px;
+  font-weight: 400;
+`;
 
-    display: -webkit-box;
-   -webkit-line-clamp: 2; // 원하는 라인수
-   -webkit-box-orient: vertical
-}
+const Description = styled.p`
+  line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  max-width: 300px;
 
-  span {
-    color: ${({ theme }) => theme.color.Text};
-    font-size: 12px;
-    font-weight: 400;
-  }
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // 원하는 라인수
+  -webkit-box-orient: vertical;
 `;

@@ -1,39 +1,39 @@
+import { useState } from "react";
 import { styled } from "styled-components";
-import { useEffect, useState } from "react";
 import { Header } from "../components/Header";
-import { getRequest } from "../api";
 import { SearchBar } from "../components/SearchBar";
 import { LinkList } from "../components/LinkList";
 import { Footer } from "../components/Footer";
+import { useGetFolder } from "../hooks/useGetFolder.jsx";
+import { CategoryBtnList } from "../components/CategoryBtnList.jsx";
+import { FolderEditBtns } from "../components/FolderEditBtns.jsx";
+
+import plusIcon from "../assets/PlusIcon.svg";
 
 export const SharedPage = () => {
-  const [owner, setOwner] = useState(null);
-  const [folderData, setFolderData] = useState({ name: "", links: [] });
-
-  const getFolderData = async () => {
-    const { folder } = await getRequest("api/sample/folder", null);
-
-    setOwner(() => {
-      return folder.owner;
-    });
-
-    setFolderData(() => {
-      return {
-        name: folder.name,
-        links: folder.links,
-      };
-    });
-  };
-
-  useEffect(() => {
-    getFolderData();
-  }, []);
+  const [folderData] = useGetFolder();
+  const [selectedCategory, setSelectedCategory] = useState("전체");
 
   return (
     <>
-      <Header profileImg={owner?.profileImageSource} ownerName={owner?.name} folderName={folderData.name} />
-      <Main isFolderData={folderData.name}>
+      <Header
+        profileImg={folderData.owner?.profileImageSource}
+        ownerName={folderData.owner?.name}
+        folderName={folderData.name}
+      />
+      <Main $isFolderData={folderData.name}>
         <SearchBar />
+        <Container>
+          <CategoryBtnList />
+          <AddFolderBtn>
+            폴더 추가 <PlusIcon src={plusIcon} alt="플러스 아이콘" />
+          </AddFolderBtn>
+        </Container>
+
+        <Container>
+          <CategoryText>{selectedCategory}</CategoryText>
+          <FolderEditBtns />
+        </Container>
         {folderData ? (
           <LinkList linkList={folderData.links} />
         ) : (
@@ -54,8 +54,39 @@ const Main = styled.main`
 
   @media ${({ theme }) => theme.device.tablet} {
     padding: 0 32px;
-    margin-bottom:${({ isFolderData }) => (isFolderData ? "100px" : "367px")} 
+    margin-bottom:${({ $isFolderData }) => ($isFolderData ? "100px" : "367px")} 
   
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+`;
+
+const CategoryText = styled.span`
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+`;
+
+const AddFolderBtn = styled.button`
+  color: ${({ theme }) => theme.color.GraPurpleblue};
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  background: none;
+  border: none;
+  display: flex;
+  gap: 4px;
+  margin-top: 40px;
+  cursor: pointer;
+`;
+
+const PlusIcon = styled.img`
+  width: 16px;
+  height: 16px;
 `;
 
 const NotFoundFolder = styled.div`
