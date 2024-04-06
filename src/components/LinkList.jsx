@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
-import { formatingDate } from "../utils";
+import { useGetTimeAgo } from "../hooks/useGetTimeAgo";
+import { useFormattingDate } from "../hooks/useFormattingDate";
 
 export const LinkList = ({ linkList }) => {
   return (
@@ -12,35 +13,13 @@ export const LinkList = ({ linkList }) => {
 };
 
 const Link = ({ link }) => {
-  const getTimeAgo = (createdAt) => {
-    const currentDate = new Date();
-    const createdDate = new Date(createdAt);
-    const timeDiff = currentDate - createdDate;
-    const intervals = [
-      { label: "year", seconds: 60 * 60 * 24 * 30 * 12 },
-      { label: "month", seconds: 60 * 60 * 24 * 30 },
-      { label: "day", seconds: 60 * 60 * 24 },
-      { label: "hour", seconds: 60 * 60 },
-      { label: "minute", seconds: 60 },
-    ];
-
-    for (const { label, seconds } of intervals) {
-      const diff = Math.floor(timeDiff / 1000 / seconds);
-      if (diff >= 1) {
-        return diff === 1 ? `${diff} ${label} ago` : `${diff} ${label}s ago`;
-      }
-    }
-
-    return "Just now";
-  };
-
   return (
     <LinkCard>
-      <CardImg src={link.imageSource} alt="link 이미지" />
+      <CardImg src={link.image_source} alt="link 이미지" />
       <CardContent>
-        <StyledDate>{getTimeAgo(link.createdAt)}</StyledDate>
+        <StyledDate>{useGetTimeAgo(link.created_at)}</StyledDate>
         <Description>{link.description}</Description>
-        <StyledDate>{formatingDate(link.createdAt)}</StyledDate>
+        <StyledDate>{useFormattingDate(link.created_at)}</StyledDate>
       </CardContent>
     </LinkCard>
   );

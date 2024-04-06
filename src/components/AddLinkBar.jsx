@@ -19,6 +19,10 @@ const AddLinkContainer = styled.div`
   @media ${({ theme }) => theme.device.tablet} {
     padding: 60px 32.5px 90px 32.5px;
   }
+
+  @media ${({ theme }) => theme.device.mobile} {
+   padding: 24px; 32px; 40px; 
+  }
 `;
 
 const AddLinkBox = styled.div`

@@ -1,4 +1,4 @@
-export const formatingDate = (dateString) => {
+export const useFormattingDate = (dateString) => {
   const date = new Date(dateString);
   const year = date.getFullYear();
   const month = date.getMonth() + 1; // 월은 0부터 시작하므로 1을 더합니다.

@@ -9,20 +9,20 @@ export const Footer = () => {
     <Container>
       <FooterCompany>@codeit - 2023</FooterCompany>
       <Support>
-        <a>Privacy Policy</a>
-        <a>FAQ</a>
+        <a href="https://www.privacy Policy">Privacy Policy</a>
+        <a href="https://www.faq">FAQ</a>
       </Support>
       <SocialIcon>
-        <a href="https://www.facebook.com/?locale=ko_KR" target="_blank">
+        <a href="https://www.facebook.com/?locale=ko_KR" target="_blank" rel="noreferrer">
           <img src={facebookIcon} alt="facebook" />
         </a>
-        <a href="https://twitter.com/?lang=ko" target="_blank">
+        <a href="https://twitter.com/?lang=ko" target="_blank" rel="noreferrer">
           <img src={twitterIcon} alt="twitter" />
         </a>
-        <a href="https://www.youtube.com" target="_blank">
+        <a href="https://www.youtube.com" target="_blank" rel="noreferrer">
           <img src={youtubeIcon} alt="youtube" />
         </a>
-        <a href="https://www.instagram.com" target="_blank">
+        <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
           <img src={instagramIcon} alt="instagram" />
         </a>
       </SocialIcon>
@@ -41,6 +41,7 @@ const Container = styled.footer`
   font-size: 16px;
   font-weight: 400;
   margin: 0 auto;
+  position: relative;
 
   @media ${({ theme }) => theme.device.tablet} {
     padding: 32px 104px 64px;

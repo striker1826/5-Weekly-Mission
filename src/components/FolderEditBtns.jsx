@@ -26,6 +26,14 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: none;
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    display: flex;
+  }
 `;
 
 const Wrap = styled.button`

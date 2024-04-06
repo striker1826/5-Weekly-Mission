@@ -1,26 +1,57 @@
+import { useState } from "react";
 import { styled } from "styled-components";
+import { useChangeFolderColor } from "../hooks/useChangeFolderColor";
 
-export const CategoryBtnList = () => {
+export const CategoryBtnList = ({ folderList, folderId, setFolderId, setSelectedCategory }) => {
   return (
     <BtnContainer>
-      <CategoryBtn>전체</CategoryBtn>
-      <CategoryBtn>⭐️ 즐겨찾기</CategoryBtn>
-      <CategoryBtn>코딩 팁</CategoryBtn>
-      <CategoryBtn>채용 사이트</CategoryBtn>
-      <CategoryBtn>유용한 글</CategoryBtn>
-      <CategoryBtn>나만의 장소</CategoryBtn>
+      {folderList.map((folder) => {
+        return (
+          <CategoryBtn
+            key={folder.id}
+            currentFolderId={folderId}
+            folderId={folder.id}
+            setFolderId={setFolderId}
+            setSelectedCategory={setSelectedCategory}
+          >
+            {folder.name}
+          </CategoryBtn>
+        );
+      })}
     </BtnContainer>
   );
 };
 
-const CategoryBtn = ({ children }) => {
-  return <Btn>{children}</Btn>;
+const CategoryBtn = ({ folderId, currentFolderId, setFolderId, setSelectedCategory, children }) => {
+  const [isSeleted, setIsSelected] = useState(false);
+
+  useChangeFolderColor(currentFolderId, folderId, setIsSelected);
+
+  const onChangeFolder = () => {
+    setFolderId(folderId);
+    setSelectedCategory(children);
+  };
+
+  return (
+    <Btn onClick={onChangeFolder} $isSeleted={isSeleted}>
+      {children}
+    </Btn>
+  );
 };
 
 const BtnContainer = styled.div`
   display: flex;
   gap: 8px;
   margin-top: 40px;
+  flex-wrap: wrap;
+  width: 50%;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    width: 100%;
+  }
+  @media ${({ theme }) => theme.device.mobile} {
+    width: 100%;
+  }
 `;
 
 const Btn = styled.button`
@@ -29,4 +60,7 @@ const Btn = styled.button`
   background: #fff;
   padding: 8px 12px;
   cursor: pointer;
+  color: ${({ $isSeleted, theme }) => ($isSeleted ? theme.color.White : theme.color.Gray1)};
+  background-color: ${({ $isSeleted, theme }) => ($isSeleted ? theme.color.GraPurpleblue : "#fff")};
+  white-space: nowrap;
 `;
