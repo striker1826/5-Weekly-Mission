@@ -8,7 +8,6 @@ import { useGetFolder } from "../hooks/useGetFolder.jsx";
 import { CategoryBtnList } from "../components/CategoryBtnList.jsx";
 import { FolderEditBtns } from "../components/FolderEditBtns.jsx";
 import { useGetFolderList } from "../hooks/useGetFolderList.jsx";
-
 import plusIcon from "../assets/PlusIcon.svg";
 import { useGetLinks } from "../hooks/useGetLinks.jsx";
 
