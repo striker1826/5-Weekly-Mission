@@ -154,3 +154,12 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer utilities {
+  .flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
