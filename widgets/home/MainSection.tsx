@@ -1,7 +1,7 @@
 import GradientSkyblueBtn from "@/components/GradientSkyblueBtn";
 import Image from "next/image";
 import React from "react";
-import hero from "@/public/img/hero.png";
+import hero from "@/public/img/home/hero.png";
 
 const MainSection = () => {
   return (
