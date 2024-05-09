@@ -11,7 +11,7 @@ import Footer from "@/widgets/home/Footer";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Header />
       <MainSection />
       <SaveSection />
@@ -19,6 +19,6 @@ export default function Home() {
       <SharedSection />
       <SearchedSection />
       <Footer />
-    </div>
+    </>
   );
 }
