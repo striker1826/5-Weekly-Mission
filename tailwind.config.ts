@@ -25,6 +25,10 @@ const config: Config = {
         Gray4: "#E7EFFB",
         Gray5: "#F0F6FF",
       },
+      screens: {
+        mobile: "767px",
+        tablet: "1199px",
+      },
     },
   },
   plugins: [],
