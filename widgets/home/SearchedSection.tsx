@@ -13,7 +13,7 @@ const SearchedSection = () => {
       />
       <div className="flex w-[290px] flex-col gap-[10px] pr-[20px]">
         <p className="text-[48px] font-[700] leading-[-0.3px] text-[#000]">
-          저장한 링크를{" "}
+          저장한 링크를
           <span className="bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent">
             검색
           </span>

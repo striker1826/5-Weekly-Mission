@@ -26,8 +26,8 @@ const config: Config = {
         Gray5: "#F0F6FF",
       },
       screens: {
-        mobile: "767px",
-        tablet: "1199px",
+        tablet: "767px",
+        web: "1200px",
       },
     },
   },
