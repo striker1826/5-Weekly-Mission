@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const ManagedSection = () => {
   return (
-    <section className="my-[50px] flex items-center justify-center gap-[157px]">
+    <section className="mb-[50px] mt-[100px] flex items-center justify-center gap-[157px]">
       <Image
         src={managed_section_img}
         alt="managed_section_img"
