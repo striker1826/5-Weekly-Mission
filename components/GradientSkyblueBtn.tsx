@@ -1,14 +1,19 @@
 import React from "react";
 
 interface PropsType {
-  width: string;
+  width: number;
   text: string;
 }
 
 const GradientSkyblueBtn: React.FC<PropsType> = ({ width, text }) => {
+  const widthPx: Record<number, string> = {
+    128: "w-[128px]",
+    350: "w-[350px]",
+  };
+
   return (
     <button
-      className={`w-[${width}px] rounded-[8px] bg-gradient-to-r from-purple-600 to-sky-400 px-[20px] py-[16px] text-[18px] font-[600] text-neutral-100`}
+      className={`${widthPx[width]} rounded-[8px] bg-gradient-to-r from-purple-600 to-sky-400 px-[20px] py-[16px] text-[18px] font-[600] text-neutral-100`}
     >
       {text}
     </button>

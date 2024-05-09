@@ -9,7 +9,7 @@ const Header = () => {
     <div className="sticky top-0 bg-Gray5 px-[200px] py-[20px]">
       <div className="flex justify-between">
         <Image src={logo} alt="logo" width={133} height={24} />
-        <GradientSkyblueBtn width={"128"} text={"로그인"} />
+        <GradientSkyblueBtn width={128} text={"로그인"} />
       </div>
     </div>
   );
