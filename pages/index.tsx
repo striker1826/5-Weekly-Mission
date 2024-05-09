@@ -5,6 +5,7 @@ import Image from "next/image";
 import MainSection from "@/widgets/home/MainSection";
 import SaveSection from "@/widgets/home/SaveSection";
 import ManagedSection from "@/widgets/home/ManagedSection";
+import SharedSection from "@/widgets/home/SharedSection";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <MainSection />
       <SaveSection />
       <ManagedSection />
+      <SharedSection />
     </div>
   );
 }
