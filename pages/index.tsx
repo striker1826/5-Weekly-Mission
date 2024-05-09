@@ -6,6 +6,8 @@ import MainSection from "@/widgets/home/MainSection";
 import SaveSection from "@/widgets/home/SaveSection";
 import ManagedSection from "@/widgets/home/ManagedSection";
 import SharedSection from "@/widgets/home/SharedSection";
+import SearchedSection from "@/widgets/home/SearchedSection";
+import Footer from "@/widgets/home/Footer";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
       <SaveSection />
       <ManagedSection />
       <SharedSection />
+      <SearchedSection />
+      <Footer />
     </div>
   );
 }
