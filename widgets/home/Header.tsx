@@ -16,7 +16,12 @@ const Header = () => {
     >
       <div className="flex justify-between">
         <Image src={logo} alt="logo" width={133} height={24} />
-        <GradientSkyblueBtn width={128} text={"로그인"} />
+        <div className={cn("hidden", "table:block", "web:block")}>
+          <GradientSkyblueBtn width={128} text={"로그인"} />
+        </div>
+        <div className={cn("block", "table:hidden", "web:hidden")}>
+          <GradientSkyblueBtn width={80} text={"로그인"} />
+        </div>
       </div>
     </div>
   );

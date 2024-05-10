@@ -7,9 +7,9 @@ const SaveSection = () => {
   return (
     <section
       className={cn(
-        "mb-[50px] mt-[40px] flex flex-col items-center justify-center gap-[20px] px-[32px]",
-        "tablet:flex tablet:mt-[120px] tablet:gap-[50px]",
-        "web:flex web:mt-[120px] web:gap-[157px]",
+        "items-left mb-[50px] mt-[40px] flex flex-col justify-center gap-[20px] px-[32px]",
+        "tablet:flex tablet:flex-row tablet:mt-[120px] tablet:gap-[50px] tablet:items-center",
+        "web:flex web:flex-row web:mt-[120px] web:gap-[157px] web:items-center",
       )}
     >
       <div
@@ -44,7 +44,7 @@ const SaveSection = () => {
       </div>
       <Image
         className={cn(
-          "h-[265px] w-[325px]",
+          "h-full w-full",
           "tablet:w-[385px] tablet:h-[315px]",
           "web:w-[550px] tablet:h-[450px]",
         )}

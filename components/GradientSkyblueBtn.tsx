@@ -6,7 +6,9 @@ interface PropsType {
 }
 
 const GradientSkyblueBtn: React.FC<PropsType> = ({ width, text }) => {
+  //TODO: widthPx 삭제할 예정
   const widthPx: Record<number, string> = {
+    90: "w-[90px]",
     128: "w-[128px]",
     350: "w-[350px]",
     200: "w-[200px]",
