@@ -7,7 +7,7 @@ const SearchedSection = () => {
   return (
     <section
       className={cn(
-        "mb-[120px] flex items-center justify-center gap-[157px] pt-[100px]",
+        "mb-[170px] flex items-center justify-center gap-[157px] pt-[100px]",
         "tablet:gap-[51px]",
       )}
     >
