@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div
       className={cn(
-        "sticky top-0 bg-Gray5 py-[20px]",
+        "sticky top-0 bg-Gray5 px-[32px] py-[20px]",
         "tablet:px-[32px]",
         "web:px-[200px]",
       )}
