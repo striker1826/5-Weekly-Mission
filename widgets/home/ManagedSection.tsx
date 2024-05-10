@@ -1,11 +1,16 @@
 import React from "react";
 import managed_section_img from "@/public/img/home/managed_section.png";
 import Image from "next/image";
+import { cn } from "@/utils/tailwind";
 
 const ManagedSection = () => {
   return (
     <section className="mb-[50px] mt-[100px] flex items-center justify-center gap-[157px]">
       <Image
+        className={cn(
+          "tablet:w-[385px] tablet:h-[315px]",
+          "web:w-[550px] web:h-[450px]",
+        )}
         src={managed_section_img}
         alt="managed_section_img"
         width={550}
