@@ -5,7 +5,13 @@ import { cn } from "@/utils/tailwind";
 
 const ManagedSection = () => {
   return (
-    <section className="mb-[50px] mt-[100px] flex items-center justify-center gap-[157px]">
+    <section
+      className={cn(
+        "mb-[50px] mt-[100px] flex items-center justify-center",
+        "tablet:gap-[51px]",
+        "web:gap-[157px]",
+      )}
+    >
       <Image
         className={cn(
           "tablet:w-[385px] tablet:h-[315px]",
