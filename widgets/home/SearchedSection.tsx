@@ -1,11 +1,21 @@
 import React from "react";
 import searchedSectionImg from "@/public/img/home/searched_section.png";
 import Image from "next/image";
+import { cn } from "@/utils/tailwind";
 
 const SearchedSection = () => {
   return (
-    <section className="mb-[120px] flex items-center justify-center gap-[157px] py-[50px]">
+    <section
+      className={cn(
+        "mb-[120px] flex items-center justify-center gap-[157px] pt-[100px]",
+        "tablet:gap-[51px]",
+      )}
+    >
       <Image
+        className={cn(
+          "tablet:w-[385px] tablet:h-[315px]",
+          "web:w-[550px] web:h-[450px]",
+        )}
         src={searchedSectionImg}
         alt="Searched Section img"
         width={550}
