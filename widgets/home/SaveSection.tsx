@@ -1,10 +1,16 @@
 import Image from "next/image";
 import React from "react";
 import save_section_img from "@/public/img/home/save_section.svg";
+import { cn } from "@/utils/tailwind";
 
 const SaveSection = () => {
   return (
-    <section className="mb-[50px] mt-[120px] flex items-center justify-center gap-[157px]">
+    <section
+      className={cn(
+        "mb-[50px] mt-[120px] flex items-center justify-center gap-[157px]",
+        "tablet:gap-[50px]",
+      )}
+    >
       <div className="flex w-[290px] flex-col gap-[10px] pr-[28px]">
         <p className="text-start text-[48px] font-[700] leading-[-0.3px]">
           <span className="bg-gradient-to-r from-red-400 to-blue-400 bg-clip-text text-transparent">
@@ -18,6 +24,7 @@ const SaveSection = () => {
         </p>
       </div>
       <Image
+        className={cn("tablet:w-[385px] h-[315px]", "web:w-[550px] h-[450px]")}
         src={save_section_img}
         alt="save_section_img"
         width={550}
