@@ -9,6 +9,7 @@ const GradientSkyblueBtn: React.FC<PropsType> = ({ width, text }) => {
   const widthPx: Record<number, string> = {
     128: "w-[128px]",
     350: "w-[350px]",
+    200: "w-[200px]",
   };
 
   return (
