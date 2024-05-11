@@ -1,0 +1,47 @@
+.container {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.addFolderBtn {
+  display: none;
+}
+
+@media (min-width: 767px) {
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .container {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .addFolderBtn {
+    width: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    height: 100%;
+    color: #6d6afe;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+  }
+
+  .addFolderBtn > img {
+    margin-bottom: 4px;
+  }
+}
+
+@media (min-width: 1028) {
+}
