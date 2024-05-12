@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "@/components/category/styles/category.module.css";
-import { Category } from "@/types/category";
+import type { Category } from "@/types/category";
 import { useCategoryState } from "@/hooks/category/useCategoryState";
 
 interface CategoryProps {
