@@ -3,13 +3,16 @@ import React from "react";
 import logo from "@/public/img/logo.svg";
 import styles from "@/widgets/folder/styles/header.module.css";
 import useGetUserData from "@/hooks/user/useGetUserData";
+import Link from "next/link";
 
 const Header = () => {
   const { userData, error } = useGetUserData();
 
   return (
     <header className={styles.container}>
-      <Image src={logo} alt="logo" />
+      <Link href={"/"}>
+        <Image src={logo} alt="logo" />
+      </Link>
       <div className={styles.profile}>
         <Image
           className="profileImg"

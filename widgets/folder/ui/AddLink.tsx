@@ -2,6 +2,7 @@ import React from "react";
 import styles from "@/widgets/folder/styles/addLink.module.css";
 import linkIcon from "@/public/img/folder/link.svg";
 import Image from "next/image";
+import GradientSkyblueBtn from "@/components/button/ui/GradientSkyblueBtn";
 
 const AddLink = () => {
   return (
@@ -15,7 +16,9 @@ const AddLink = () => {
             placeholder="링크를 추가해 보세요"
           />
         </div>
-        <button className={styles.addBtn}>추가하기</button>
+        <div className={styles.addBtn}>
+          <GradientSkyblueBtn text="추가하기" />
+        </div>
       </div>
     </section>
   );
