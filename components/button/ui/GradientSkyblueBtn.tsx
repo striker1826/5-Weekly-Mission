@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/components/button/styles/GradientSkyblueBtn.module.css";
+import styles from "@/components/button/styles/gradientSkyblueBtn.module.css";
 
 interface PropsType {
   text: string;

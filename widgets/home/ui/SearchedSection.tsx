@@ -1,5 +1,5 @@
 import React from "react";
-import searchedSectionImg from "@/public/img/home/searched_section.png";
+import searchedSectionImg from "@/public/img/home/Searched_section.png";
 import Image from "next/image";
 import styles from "@/widgets/home/styles/searchedSection.module.css";
 
