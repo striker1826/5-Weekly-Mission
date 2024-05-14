@@ -1,0 +1,44 @@
+/* mobile */
+.container {
+  display: flex;
+  justify-content: space-between;
+  background: #f0f6ff;
+  padding: 20px 32px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email {
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 14px;
+  font-weight: 400;
+  display: none;
+}
+
+/* tablet */
+@media screen and (min-width: 767px) {
+  .container {
+    display: flex;
+    padding: 20px 32px;
+  }
+
+  .email {
+    display: block;
+  }
+}
+
+/* web */
+@media screen and (min-width: 1028px) {
+  .container {
+    display: flex;
+    padding: 20px 200px;
+  }
+
+  .email {
+    display: block;
+  }
+}

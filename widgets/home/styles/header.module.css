@@ -1,0 +1,38 @@
+/* mobile */
+.container {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0px;
+  background: #f0f6ff;
+  padding: 20px 32px;
+}
+
+.wrap {
+  width: 88px;
+  height: 50px;
+}
+
+/* tablet */
+@media screen and (min-width: 767px) {
+  .container {
+    display: flex;
+    padding: 20px 32px;
+  }
+
+  .wrap {
+    width: 128px;
+  }
+}
+
+/* web */
+@media screen and (min-width: 1028px) {
+  .container {
+    display: flex;
+    padding: 20px 200px;
+  }
+
+  .wrap {
+    width: 128px;
+  }
+}
