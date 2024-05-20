@@ -1,3 +1,4 @@
+
 import Header from "@/widgets/home/ui/header/Header";
 import Footer from "../widgets/home/ui/footer/Footer";
 import MainSection from "../widgets/home/ui/mainSection/MainSection";
@@ -6,9 +7,12 @@ import SaveSection from "../widgets/home/ui/saveSection/SaveSection";
 import SearchedSection from "../widgets/home/ui/searchSection/SearchedSection";
 import SharedSection from "../widgets/home/ui/shareSection/SharedSection";
 
+
+
 export default function Home() {
   return (
     <>
+
       <Header />
       <MainSection />
       <SaveSection />
@@ -18,4 +22,5 @@ export default function Home() {
       <Footer />
     </>
   );
+
 }
