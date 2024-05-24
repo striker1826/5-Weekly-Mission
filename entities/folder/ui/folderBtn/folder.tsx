@@ -9,8 +9,8 @@ interface FolderBtnProps {
 }
 
 const FolderBtn = ({ folder, onClick }: FolderBtnProps) => {
-  const { folderId } = useFolderState();
-  const isSelected = folderId === folder.id;
+  const { folderName } = useFolderState();
+  const isSelected = folderName === folder.name;
 
   return (
     <button

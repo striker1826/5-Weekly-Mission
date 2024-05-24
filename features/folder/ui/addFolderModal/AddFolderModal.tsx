@@ -13,7 +13,7 @@ const AddFolderModal = () => {
       />
 
       <div className={styles.addBtn}>
-        <GradientSkyblueBtn text="추가하기" onClick={() => {}} />
+        <GradientSkyblueBtn text="추가하기" type="button" onClick={() => {}} />
       </div>
     </div>
   );

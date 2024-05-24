@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import styles from "./signupForm.module.css";
-import SignupBtn from "@/features/auth/ui/signup/SignupBtn";
-import { signup } from "@/features/auth/model/signup";
-import { useForm } from "react-hook-form";
 import { useSignupFormState } from "../../model/useSignupFormValidate";
 import Input from "@//shared/ui/input/Input";
 import EyeBtn from "@/features/auth/ui/passwordVisible/EyeBtn";
+import AuthBtn from "@/features/auth/ui/authBtn/AuthBtn";
+import { signup } from "../../model/signup";
 
 const SignupForm = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -57,11 +56,7 @@ const SignupForm = () => {
         />
       </div>
       <p className={styles.errMsg}>{errors.confirmPassword?.message}</p>
-      <SignupBtn
-        onClickSignup={handleSubmit((data) =>
-          signup({ email: data.email, password: data.password }),
-        )}
-      />
+      <AuthBtn />
     </form>
   );
 };

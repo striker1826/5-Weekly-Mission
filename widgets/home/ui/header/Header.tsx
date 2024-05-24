@@ -10,12 +10,13 @@ const Header = () => {
   const router = useRouter();
   return (
     <header className={styles.container}>
-      <Link href={"/"}>
+      <Link href="/">
         <Image src={logo} alt="logo" />
       </Link>
       <div className={styles.wrap}>
         <GradientSkyblueBtn
           text={"로그인"}
+          type="button"
           onClick={() => router.push("/signin")}
         />
       </div>

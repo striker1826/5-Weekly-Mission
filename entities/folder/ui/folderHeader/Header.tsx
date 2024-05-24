@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <header className={styles.container}>
-      <Link href={"/"}>
+      <Link href="/">
         <Image src={logo} alt="logo" />
       </Link>
       <div className={styles.profile}>

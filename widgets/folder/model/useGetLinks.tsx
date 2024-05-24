@@ -1,19 +1,18 @@
 import { Link } from "@/types/link";
-import { useFolderState } from "../../../../../shared/model/hooks/useFolderState";
-import apiInstance from "../../../../../shared/model/api/axios";
+import { useFolderState } from "../../../shared/model/hooks/useFolderState";
+import apiInstance from "../../../shared/model/api/axios";
 import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 
-const useGetLinksData = () => {
+const useGetLinks = (folderId: any) => {
   const [linkDataList, setLinkDataList] = useState<Link[]>();
   const [error, setError] = useState();
-  const { folderId } = useFolderState();
 
   const getLinksData = async (folderId: number) => {
     try {
       let url = "/users/1/links";
 
-      if (folderId === 0) {
+      if (!folderId) {
         url = "/users/1/links";
       } else {
         url = `/users/1/links?folderId=${folderId}`;
@@ -21,6 +20,7 @@ const useGetLinksData = () => {
 
       const res = await apiInstance.get(url);
       const linkList = res.data.data;
+      console.log(linkList);
 
       setLinkDataList(linkList);
     } catch (err) {
@@ -37,4 +37,4 @@ const useGetLinksData = () => {
   return { linkDataList, error };
 };
 
-export default useGetLinksData;
+export default useGetLinks;

@@ -15,7 +15,7 @@ const EditModal = () => {
         placeholder={folderName}
       />
       <div className={styles.editBtn}>
-        <GradientSkyblueBtn text="변경하기" onClick={() => {}} />
+        <GradientSkyblueBtn text="변경하기" type="button" onClick={() => {}} />
       </div>
     </div>
   );

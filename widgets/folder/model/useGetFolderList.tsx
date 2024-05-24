@@ -13,7 +13,7 @@ const useGetFolderList = () => {
 
   useEffect(() => {
     getFolderList();
-  }, []);
+  }, [folderList]);
 
   return { folderList };
 };

@@ -17,7 +17,7 @@ const AddLink = () => {
           />
         </div>
         <div className={styles.addBtn}>
-          <GradientSkyblueBtn text="추가하기" />
+          <GradientSkyblueBtn text="추가하기" type="button" />
         </div>
       </div>
     </section>

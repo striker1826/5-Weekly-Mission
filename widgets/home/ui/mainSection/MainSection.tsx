@@ -13,7 +13,7 @@ const MainSection = () => {
         쉽게 저장하고 관리해 보세요
       </p>
       <div className={styles.btnWrap}>
-        <GradientSkyblueBtn text="링크 추가하기" />
+        <GradientSkyblueBtn text="링크 추가하기" type="button" />
       </div>
       <Image src={hero} alt="hero_img" />
     </section>

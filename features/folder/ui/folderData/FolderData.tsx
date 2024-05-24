@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import styles from "./folderData.module.css";
-
 import Modal from "../../../../shared/ui/modal/linkModal/LinkModal";
-
 import EditModal from "../editFolderModal/EditModal";
 import DeleteModal from "../deleteFolderModal/DeleteModal";
 import ShareModal from "../shareFolderModal/ShareModal";
-
 import LinkKebab from "../../../link/ui/toggleKebab/LinkKebab";
 import LinkCard from "../../../../entities/linkCard/ui/LinkCard";
 import FolderOption from "../../../../widgets/folder/ui/folderOption/FolderOption";
-import useGetLinksData from "../../../../widgets/folder/ui/linkList/model/useGetLinksData";
 import useSearchKeyword from "@/features/link/model/useSearchKeyword";
+import { useRouter } from "next/router";
+import useGetLinks from "@/widgets/folder/model/useGetLinks";
 
 interface ModalType {
   [key: string]: JSX.Element;
 }
 
 const FolderData = () => {
-  const { linkDataList, error } = useGetLinksData();
+  const { folderId } = useRouter().query;
+  console.log(folderId);
+
+  const { linkDataList, error } = useGetLinks(folderId);
   const filteredList = useSearchKeyword(linkDataList);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("edit");

@@ -1,20 +1,20 @@
 "use client";
 
 import PagePadding from "@/widgets/signin/ui/pagePadding/PagePadding";
-import SocialLoginFrom from "@/widgets/signin/ui/socialForm/SocialLoginFrom";
 import React from "react";
-import { useCheckLogin } from "@//shared/model/hooks/useCheckLogin";
 import Header from "@/widgets/signin/ui/header/Header";
-import LoginForm from "@/widgets/signin/ui/loginForm/LoginForm";
+import SocialSigninForm from "@/widgets/signin/ui/socialForm/SocialSigninForm";
+import SigninForm from "@/widgets/signin/ui/signinform/SigninForm";
+import { useAuthGuard } from "@/shared/model/hooks/useAuthGuard";
 
 const Home = () => {
-  useCheckLogin();
+  useAuthGuard();
 
   return (
     <PagePadding>
       <Header />
-      <LoginForm />
-      <SocialLoginFrom />
+      <SigninForm />
+      <SocialSigninForm />
     </PagePadding>
   );
 };

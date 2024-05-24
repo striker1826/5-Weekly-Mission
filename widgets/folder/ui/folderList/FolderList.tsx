@@ -7,18 +7,20 @@ import AddFolderModal from "@/features/folder/ui/addFolderModal/AddFolderModal";
 import FolderBtn from "@/entities/folder/ui/folderBtn/folder";
 import { useFolderState } from "@/shared/model/hooks/useFolderState";
 import useGetFolderList from "../../model/useGetFolderList";
+import { useRouter } from "next/router";
 
 const FolderList = () => {
   const { folderList } = useGetFolderList();
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const { setFolderId, setFolderName } = useFolderState();
+  const { setFolderName } = useFolderState();
+  const router = useRouter();
 
   return (
     <div className={styles.wrap}>
       <div className={styles.container}>
         <FolderBtn
           onClick={() => {
-            setFolderId(null);
+            router.push("/folder");
             setFolderName("전체");
           }}
           folder={{ name: "전체", id: 0 }}
@@ -27,7 +29,7 @@ const FolderList = () => {
           return (
             <FolderBtn
               onClick={() => {
-                setFolderId(folder.id);
+                router.push(`/folder/${folder.id}`);
                 setFolderName(folder.name);
               }}
               key={folder.id}

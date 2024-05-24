@@ -3,7 +3,6 @@ import React from "react";
 import styles from "./eyeBtn.module.css";
 import eyeOpen from "@/public/img/auth/eye-on.png";
 import eyeClose from "@/public/img/auth/eye-off.svg";
-import { handleEyeToggle } from "../../model/handleEyeToggle";
 
 interface EyeBtnProps {
   isVisible: boolean;
@@ -15,7 +14,7 @@ const EyeBtn = ({ isVisible, setIsVisible }: EyeBtnProps) => {
     <button
       tabIndex={-1}
       type="button"
-      onClick={() => handleEyeToggle(setIsVisible)}
+      onClick={() => setIsVisible((prev) => !prev)}
       className={styles.eyeBtn}
     >
       {isVisible ? (
