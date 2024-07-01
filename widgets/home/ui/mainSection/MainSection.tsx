@@ -4,7 +4,7 @@ import hero from "@/public/img/home/hero.png";
 import styles from "./mainSection.module.css";
 import GradientSkyblueBtn from "@//shared/ui/button/gradientBtn/GradientSkyblueBtn";
 
-const MainSection = () => {
+export const MainSection = () => {
   return (
     <section className={styles.container}>
       <p className={styles.heading}>
@@ -19,5 +19,3 @@ const MainSection = () => {
     </section>
   );
 };
-
-export default MainSection;

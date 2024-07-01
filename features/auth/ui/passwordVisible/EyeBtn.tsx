@@ -9,7 +9,7 @@ interface EyeBtnProps {
   setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const EyeBtn = ({ isVisible, setIsVisible }: EyeBtnProps) => {
+export const EyeBtn = ({ isVisible, setIsVisible }: EyeBtnProps) => {
   return (
     <button
       tabIndex={-1}
@@ -25,5 +25,3 @@ const EyeBtn = ({ isVisible, setIsVisible }: EyeBtnProps) => {
     </button>
   );
 };
-
-export default EyeBtn;

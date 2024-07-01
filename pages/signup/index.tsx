@@ -1,12 +1,9 @@
-import { useAuthGuard } from "@/shared/model/hooks/useAuthGuard";
-import PagePadding from "@/widgets/signin/ui/pagePadding/PagePadding";
-import Header from "@/widgets/signup/ui/header/Header";
-import SignupForm from "@/widgets/signup/ui/signupForm/SignupForm";
+import { PagePadding } from "@/widgets/signin";
+
+import { Header, SignupForm } from "@/widgets/signup";
 import React from "react";
 
 const Home = () => {
-  useAuthGuard();
-
   return (
     <>
       <PagePadding>

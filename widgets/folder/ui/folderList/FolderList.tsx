@@ -3,17 +3,20 @@ import styles from "./folderList.module.css";
 import bluePlusIcon from "@/public/img/folder/bluePlus.svg";
 import Image from "next/image";
 import Modal from "@//shared/ui/modal/linkModal/LinkModal";
-import AddFolderModal from "@/features/folder/ui/addFolderModal/AddFolderModal";
-import FolderBtn from "@/entities/folder/ui/folderBtn/folder";
-import { useFolderState } from "@/shared/model/hooks/useFolderState";
-import useGetFolderList from "../../model/useGetFolderList";
-import { useRouter } from "next/router";
+import { useFolderState } from "@/shared/store/useFolderState";
 
-const FolderList = () => {
-  const { folderList } = useGetFolderList();
+import { useRouter } from "next/router";
+import { FolderBtn } from "@/entities/folder";
+import { AddFolderModal } from "@/features/folder";
+import { useGetFolderList } from "@/queries/folder/useGetFolderList";
+import { useQuery } from "@tanstack/react-query";
+
+export const FolderList = () => {
+  const { data: folderListData } = useQuery(useGetFolderList.queryOptions());
   const [isOpenModal, setIsOpenModal] = useState(false);
   const { setFolderName } = useFolderState();
   const router = useRouter();
+  const folderList = folderListData?.data.data;
 
   return (
     <div className={styles.wrap}>
@@ -53,5 +56,3 @@ const FolderList = () => {
     </div>
   );
 };
-
-export default FolderList;

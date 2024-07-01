@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./addLink.module.css";
 import linkIcon from "@/public/img/folder/link.svg";
 import Image from "next/image";
-import GradientSkyblueBtn from "@//shared/ui/button/gradientBtn/GradientSkyblueBtn";
+import GradientSkyblueBtn from "@/shared/ui/button/gradientBtn/GradientSkyblueBtn";
 
-const AddLink = () => {
+export const AddLink = () => {
   return (
     <section className={styles.container}>
       <div className={styles.addLinkBar}>
@@ -23,5 +23,3 @@ const AddLink = () => {
     </section>
   );
 };
-
-export default AddLink;

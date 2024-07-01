@@ -5,9 +5,9 @@ export const signin = async (
   data: { email: string; password: string },
   setError: any,
 ) => {
-  const accessToken = await signinApi(data);
+  const result = await signinApi(data);
 
-  if (!accessToken) {
+  if (!result) {
     setError(AuthFormStateKey.email, {
       type: "manual",
       message: "이메일 또는 비밀번호가 일치하지 않습니다.",
@@ -16,10 +16,10 @@ export const signin = async (
       type: "manual",
       message: "이메일 또는 비밀번호가 일치하지 않습니다.",
     });
-
     return;
   }
 
-  localStorage.setItem("accessToken", accessToken);
-  window.location.href = "/folder";
+  localStorage.setItem("accessToken", result.data.accessToken);
+  window.location.replace("/folder");
+  console.log("signin");
 };

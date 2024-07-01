@@ -146,10 +146,6 @@ table {
   border-spacing: 0;
 }
 
-body {
-  height: 100vh;
-}
-
 #__next {
   min-height: 100%;
   padding-bottom: 230px;

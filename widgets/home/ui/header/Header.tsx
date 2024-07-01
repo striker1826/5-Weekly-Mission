@@ -6,7 +6,7 @@ import GradientSkyblueBtn from "@/shared/ui/button/gradientBtn/GradientSkyblueBt
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const Header = () => {
+export const Header = () => {
   const router = useRouter();
   return (
     <header className={styles.container}>
@@ -23,5 +23,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

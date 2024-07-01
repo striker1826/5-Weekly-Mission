@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import styles from "./signupForm.module.css";
 import { useSignupFormState } from "../../model/useSignupFormValidate";
 import Input from "@//shared/ui/input/Input";
-import EyeBtn from "@/features/auth/ui/passwordVisible/EyeBtn";
-import AuthBtn from "@/features/auth/ui/authBtn/AuthBtn";
 import { signup } from "../../model/signup";
+import { AuthBtn, EyeBtn } from "@/features/auth";
 
-const SignupForm = () => {
+export const SignupForm = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
   const {
@@ -60,5 +59,3 @@ const SignupForm = () => {
     </form>
   );
 };
-
-export default SignupForm;

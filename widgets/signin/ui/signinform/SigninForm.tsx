@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styles from "./signinForm.module.css";
 import Input from "@//shared/ui/input/Input";
-import EyeBtn from "@/features/auth/ui/passwordVisible/EyeBtn";
 import { useSigninFormState } from "../../model/useSigninFormState";
-import AuthBtn from "@/features/auth/ui/authBtn/AuthBtn";
 import { signin } from "../../model/signin";
+import { useRouter } from "next/router";
+import { AuthBtn, EyeBtn } from "@/features/auth";
 
-const SigninForm = () => {
+export const SigninForm = () => {
   const [isVisible, setIsVisible] = useState(false);
   const {
     emailValidation,
@@ -15,11 +15,14 @@ const SigninForm = () => {
     setError,
     errors,
   } = useSigninFormState();
+  const router = useRouter();
 
   return (
     <form
       className={styles.container}
-      onSubmit={handleSubmit((data) => signin(data, setError))}
+      onSubmit={handleSubmit((data) => {
+        signin(data, setError);
+      })}
     >
       <Input
         register={emailValidation}
@@ -42,5 +45,3 @@ const SigninForm = () => {
     </form>
   );
 };
-
-export default SigninForm;
